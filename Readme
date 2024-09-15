@@ -1,0 +1,81 @@
+# **Job Search App**
+
+This **Job Search App** facilitates the search for jobs relevant to a user's field of expertise or interests. It features user and company management, job filtering, and a seamless job application process. The app is built using Express.js, MongoDB, and includes secure handling of sensitive data like user credentials.
+
+## **Key Features:**
+
+- **Job Filtering**: Filter jobs based on working time, location, seniority level, title, and technical skills.
+- **User Management**: Handles user registration, login, and profile updates securely.
+- **Company Management**: Manages company profiles, including adding and listing job postings.
+- **Job Applications**: Users can apply to job postings, and each application is associated with a job and the user's skills and resume.
+
+## **Tech Stack:**
+
+- **Backend**: Express.js, Mongoose
+- **Database**: MongoDB
+- **Security**: JWT, Bcrypt for password encryption
+- **Email**: Nodemailer for sending emails (e.g., account verification, password reset)
+
+## **Collections**:
+
+The app interacts with the following collections in MongoDB:
+
+- **User**: Stores user data, including authentication and authorization roles.
+- **Company**: Stores company details and job postings.
+- **Job**: Stores job postings with filters for location, working time, etc.
+- **Application**: Tracks user applications for specific jobs.
+
+## **User APIs**:
+
+These APIs manage user registration, login, and profile information. Authorization is handled via JWT tokens.
+
+- **POST /users/signup**: Register a new user.
+- **POST /users/login**: Log in a user and return JWT.
+- **GET users/getDataById**: Fetch the authenticated user profile.
+
+For more details, refer to [User APIs](https://www.notion.so/User-APIs-3676dff44b5d4290a02413d5d50840e6?pvs=21).
+
+## **Company APIs**:
+
+These APIs allow companies to manage their profiles and job postings.
+
+- **POST /api/v1/companies**: Create a new company.
+- **GET /api/v1/companies**: Fetch all companies or a specific company by name.
+- **GET /api/v1/companies/:id/jobs**: Fetch all jobs posted by a specific company.
+
+More details are available at [Company APIs](https://www.notion.so/Company-APIs-ff1825b9866e45a9b74952f77dafd6d0?pvs=21).
+
+## **Job APIs**:
+
+APIs for job listings and filtering jobs based on parameters like working time, location, and skills.
+
+- **GET /api/v1/jobs**: Fetch all jobs or filter based on query parameters.
+- **POST /api/v1/jobs**: Company HR can add a new job posting.
+- **PUT /api/v1/jobs/:id**: Update a specific job by ID (HR role required).
+- **DELETE /api/v1/jobs/:id**: Delete a specific job posting (HR role required).
+
+Refer to [Jobs APIs](https://www.notion.so/Jobs-APIs-f5a491eaa42948a199a3535588d03c9b?pvs=21) for more information.
+
+## **Job Application API**:
+
+Allows users to apply to a job posting.
+
+- **POST /api/v1/applications**: Users can apply to a job with their skills and resume.
+
+## **Bonus Points**:
+
+- Implement features like **job recommendations** based on user skills or **application status tracking**.
+- More details at [Bonus Points](https://www.notion.so/Bonus-Points-d1df3b17aad04030a4349178a93f6440?pvs=21).
+
+## **Environment Variables**:
+
+The following environment variables are required to run the project:
+
+PORT=3000
+DATABASE_URL="mongodb://127.0.0.1:27017/App1"
+AUTH_TOKENSIGN="ahmed__"
+SIGNIN_TOKEN="signIn"
+SIGNUP_TOKEN="signUpToken"
+REFRESH_TOKEN="refreshToken"
+EMAIL_USER="nadiaelassal90@gmail.com"
+EMAIL_PASS="nwmmzrpznjzfmhti"
